@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title room bitch
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+    script(src='http://code.jquery.com/jquery-1.11.0.min.js')
+    script(src='/script/room.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+
+  body
+    div#userlist
+      span#nickname
+        = nickname
+    div#chatbox
+      ul#messages
+      form#chat_bar
+        input#mi(autocomplete='off')
+        //button#mb(type='submit') send

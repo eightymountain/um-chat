@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title login
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+    script(src='http://code.jquery.com/jquery-1.11.0.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+  body
+    div.centered
+      form#login(action='/room' method='post')
+        p
+          input(type='text' name='nickname' placeholder='별명')
+        p
+          button(type='submit') 들어가기
