@@ -1,6 +1,6 @@
 {
   "name": "um-chat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -9,10 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.15.3",
-    "jade": "^1.11.0",
-    "socket.io": "^2.0.3"
+    "body-parser": "^1.19.0",
+    "connect-redis": "^4.0.4",
+    "cookie-parser": "^1.4.5",
+    "date-utils": "^1.2.21",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "pug": "^2.0.4",
+    "redis": "^3.0.2",
+    "socket.io": "^2.3.0"
   }
 }
