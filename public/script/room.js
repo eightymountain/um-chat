@@ -26,9 +26,8 @@ $(document).ready(function () {
     socket.emit('join_room', {roomId: roomId, nickname: nickname});
 
     socket.on('room_msg', function (data) {
-        var msg = '';
-        msg = '<li class="'
-        + (data.nickname === nickname) ? 'text-right' : ''
+        var msg = '<li class="'
+        + (data.nickname === nickname ? 'text-right' : '')
             + '"><span>' + data.nickname
             + '</span><span>' + data.date
             + '</span><br><div>' + data.message
@@ -39,7 +38,7 @@ $(document).ready(function () {
     });
 
     socket.on('room_arm', function (data) {
-        messages.append($('<h4>' + data.nickname + ' 님이 ' + data.connection ? '돌아왔다.' : '떠났다...'));
+        messages.append($('<h4>' + data.nickname + ' 님이 ' + (data.connection ? '돌아왔다.' : '떠났다...')));
         messages.scrollTop(messages[0].scrollHeight);
     });
 
