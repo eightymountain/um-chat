@@ -38,7 +38,8 @@ $(document).ready(function () {
     });
 
     socket.on('room_arm', function (data) {
-        messages.append($('<h4>' + data.nickname + ' 님이 ' + (data.connection ? '돌아왔다.' : '떠났다...')));
+        var msg = '<h4>' + data.nickname + ' 님이 ' + (data.connection ? '돌아왔다.' : '떠났다...') +'</h4>';
+        messages.append($(msg));
         messages.scrollTop(messages[0].scrollHeight);
     });
 
