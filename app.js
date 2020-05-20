@@ -13,6 +13,9 @@ var io = require('socket.io').listen(httpServer);
 var secretKey = 'aka.willshine_deV_um_@33aa~@#5';
 var redisClient = redis.createClient();
 
+// timezone
+process.env.TZ = 'Asia/Seoul';
+
 // var userList = {};
 // var redisKey = 'userlist';
 app.listen(3000, function(){
