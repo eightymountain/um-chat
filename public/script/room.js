@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
 
     socket.on('room_action_msg', function (data) {
-        var msg = '<h6>' + data.nickname + ' 님이 ' + (data.connection ? '돌아왔다.' : '떠났다...') + '</h6>';
+        var msg = '<h6>' + data.message + '</h6>';
         messages.append($(msg));
         messages.scrollTop(messages[0].scrollHeight);
     });
