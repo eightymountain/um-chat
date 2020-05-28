@@ -72,7 +72,7 @@ app.post('/room', function (req, res) {
 //status 001 - connect, 002 - disconnect
 io.on('connection', function (socket) {
     socket.on('disconnect', function (reason) {
-        console.log('user disconnected.. '+ reason)
+        console.log('user disconnected.. ' + reason)
         if (socket.roomId && socket.username) {
             refreshUserList(socket.roomId, {socketId: socket.id, nickname: socket.username}, false);
         } else {
@@ -119,10 +119,11 @@ io.on('connection', function (socket) {
             message: data.message,
             date: datetime
         };
-        // socket.emit('chat_msg', datas);
-        io.sockets.in(data.roomId).emit('room_msg', datas);
-        // console.log('room:'+data.roomId
-        //             +' / chat:'+data.nickname+':'+data.message);
+        if (data.type === 'msg') {
+            io.sockets.in(data.roomId).emit('room_msg', datas);
+        } else if (data.type === 'action') {
+            io.sockets.in(data.roomId).emit('room_arm', datas);
+        }
     });
 });
 

@@ -72,7 +72,7 @@ $(document).ready(function () {
 
 function toolboxAction(ele, msg, e) {
     var nm = $('#toolbox').parent().children()[0].innerText
-    sendMsg(nickname + '님이 ' + nm+' 님을 ' + msg);
+    sendMsg(nickname + '님이 ' + nm+ msg, 'action');
 }
 
 function closeToolbox(e) {
@@ -83,11 +83,12 @@ function closeToolbox(e) {
     return false;
 }
 
-function sendMsg(msg) {
+function sendMsg(msg, type='msg') {
     socket.emit('chat_msg', {
         roomId: roomId,
         nickname: nickname,
-        message: msg
+        message: msg,
+        type: type
     });
 }
 
