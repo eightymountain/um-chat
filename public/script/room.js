@@ -8,7 +8,7 @@ var mi;
 var socket;
 var nickname;
 var roomId
-var toolboxTarget  = undefined;
+var toolboxTarget = undefined;
 
 $(document).ready(function () {
     socket = io.connect(server);
@@ -29,6 +29,12 @@ $(document).ready(function () {
             + '</span><br><div>' + data.message
             + '</div>'
 
+        messages.append($(msg));
+        messages.scrollTop(messages[0].scrollHeight);
+    });
+
+    socket.on('room_action_msg', function (data) {
+        var msg = '<h6>' + data.nickname + ' 님이 ' + (data.connection ? '돌아왔다.' : '떠났다...') + '</h6>';
         messages.append($(msg));
         messages.scrollTop(messages[0].scrollHeight);
     });
@@ -72,7 +78,7 @@ $(document).ready(function () {
 
 function toolboxAction(ele, msg, e) {
     var nm = $('#toolbox').parent().children()[0].innerText
-    sendMsg(nickname + '님이 ' + nm+ msg, 'action');
+    sendMsg(nickname + '님이 ' + nm + msg, 'action');
 }
 
 function closeToolbox(e) {
@@ -83,7 +89,7 @@ function closeToolbox(e) {
     return false;
 }
 
-function sendMsg(msg, type='msg') {
+function sendMsg(msg, type = 'msg') {
     socket.emit('chat_msg', {
         roomId: roomId,
         nickname: nickname,

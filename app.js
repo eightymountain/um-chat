@@ -122,7 +122,7 @@ io.on('connection', function (socket) {
         if (data.type === 'msg') {
             io.sockets.in(data.roomId).emit('room_msg', datas);
         } else if (data.type === 'action') {
-            io.sockets.in(data.roomId).emit('room_arm', datas);
+            io.sockets.in(data.roomId).emit('room_action_msg', datas);
         }
     });
 });

@@ -52,6 +52,11 @@ html, body {
 }
 
 #messages h4 {
+    color: darkgray;
+    text-align: center;
+}
+
+#messages h6 {
     color: #FFC107;
     text-align: center;
 }
