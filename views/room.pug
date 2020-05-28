@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    meta(name='viewport' content='widht=device-width, initial-scale=1')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
     meta(name='description' content='')
     title 방안이야
     link(rel='stylesheet', type='text/css', href='css/style.css')
@@ -18,11 +18,21 @@ html
         div#chatbox
           ul#messages
         div#userlist.hidden-xs
-          div#nickname
-            = nickname
+        ul#toolbox
+          li.item(onclick='toolboxAction(this, "마구 찌릅니다."), event') 찌르기
+          li.item(onclick='toolboxAction(this, "어깨를 두드립니다."), event') 두드리기
+          li.item(onclick='toolboxAction(this, "아주 칭찬해요."), event') 칭찬하기
+          li.item(onclick='toolboxAction(this, "후드려 팹니다."), event') 때리기
+          li.item(onclick='toolboxAction(this, "뚝배기를 박살냈습니다."), event') 박살내기
+          li.item.close(onclick='closeToolbox(event)') 닫기 X
       div.bottom_box
         form#chat_bar
           label.sr-only(for='mi')
             |message
           input#mi.form-control(autocomplete='off' placeholder='내용을 입력하세요(최대 100자)')
           button#mb.btn.btn-submit.btn-block(type='submit') 보내기
+
+      div#nickname
+        = nickname
+      div#roomId
+        = roomId
